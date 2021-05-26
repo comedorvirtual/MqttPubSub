@@ -26,7 +26,7 @@ public class MqttHelper implements MqttCallback {
 
     private MqttHelperListener mqttHelperListener;
     private final static String TAG = "MqttHelper";
-    private final static String HOST = "xxxxxxxxxxxxxxxxxxx";
+    private final static String HOST = "yyyyyyyxxxxxxxxx";
     private final static String USERNAME = "xxxxxxxxxxxxxxxx";
     private final static String PASSWORD = "";
     private MqttAsyncClient mqttAndroidClient;
