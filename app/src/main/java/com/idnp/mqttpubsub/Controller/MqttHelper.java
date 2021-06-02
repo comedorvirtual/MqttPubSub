@@ -26,18 +26,18 @@ public class MqttHelper implements MqttCallback {
 
     private MqttHelperListener mqttHelperListener;
     private final static String TAG = "MqttHelper";
-    private final static String HOST = "yyyyyyyxxxxxxxxx";
-    private final static String USERNAME = "xxxxxxxxxxxxxxxx";
-    private final static String PASSWORD = "";
+    private final static String HOST = "tcp://demo.thingsboard.io:1883";
+    private final static String USERNAME = "probando123";
+    //private final static String PASSWORD = "probando";
     private MqttAsyncClient mqttAndroidClient;
     private static MqttHelper instance;
     private static String TOPIC = "v1/devices/me/telemetry";
     private static int QOS = -1;
 
     private final int MAX_SIZE = 1000000;
-    private MqttMessageWrapper mqttMessageWrapperArray[] = new MqttMessageWrapper[MAX_SIZE];
+    private MqttMessageWrapper[] mqttMessageWrapperArray = new MqttMessageWrapper[MAX_SIZE];
     private static int COUNTER = 0;
-
+    //{clientId:"allison",userName:"davidjose123456"}
 
     public static MqttHelper getInstance() {
         if (instance == null) {
@@ -167,8 +167,8 @@ public class MqttHelper implements MqttCallback {
                     String jsonString = "{\"Temperatura (C°)\":"+temp+"}";
                     JSONObject json = new JSONObject(jsonString);
                     byte[] objAsBytes = json.toString().getBytes("UTF-8");
-
-                    mqttAndroidClient.publish("v1/devices/me/telemetry",objAsBytes,1,true);
+                   // "v1/devices/me/telemetry"
+                    mqttAndroidClient.publish(TOPIC,objAsBytes,1,true);
                     mqttMessage = new MqttMessage();
                     mqttMessage.setPayload(objAsBytes);
                     mqttMessage.setQos(QOS);
@@ -191,7 +191,7 @@ public class MqttHelper implements MqttCallback {
         }
     }
 
-    private IMqttActionListener publisher_IMqttActionListener = new IMqttActionListener() {
+    private final IMqttActionListener publisher_IMqttActionListener = new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
             Log.d(TAG, "Publisher_IMqttActionListener: onSuccess");
@@ -203,7 +203,7 @@ public class MqttHelper implements MqttCallback {
         }
     };
 
-    private IMqttActionListener subscriber_IMqttActionListener = new IMqttActionListener() {
+    private final IMqttActionListener subscriber_IMqttActionListener = new IMqttActionListener() {
 
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {

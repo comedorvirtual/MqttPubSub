@@ -7,7 +7,7 @@ import android.content.Intent;
 public class MqttBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_MESSAGE = "com.mqtt.message";
     public static final String DISPLAY_RESULT = "com.mqtt.result";
-    private MainActivityListener mainActivityListener;
+    private final MainActivityListener mainActivityListener;
 
     public MqttBroadcastReceiver(MainActivityListener mainActivityListener) {
         this.mainActivityListener = mainActivityListener;

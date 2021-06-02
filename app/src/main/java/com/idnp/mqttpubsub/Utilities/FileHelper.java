@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 
 public class FileHelper {
     private static final String TAG = "FileHelper";
-    private Context context;
+    private final Context context;
     FirebaseStorage storage;
     StorageReference storageReference;
 

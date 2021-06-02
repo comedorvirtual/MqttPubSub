@@ -45,17 +45,17 @@ public class MainActivity extends AppCompatActivity
 
         mqttBroadcastReceiver = new MqttBroadcastReceiver(MainActivity.this);
 
-        txtAction = (TextView) findViewById(R.id.txtAction);
-        txtDisplay = (TextView) findViewById(R.id.txtDisplay);
-        edtTopic = (EditText) findViewById(R.id.edtTopic);
-        edtQos = (EditText) findViewById(R.id.edtQos);
-        edtNumMessage = (EditText) findViewById(R.id.edtNumMessage);
-        edtDelay = (EditText) findViewById(R.id.edtDelay);
+        txtAction = findViewById(R.id.txtAction);
+        txtDisplay = findViewById(R.id.txtDisplay);
+        edtTopic = findViewById(R.id.edtTopic);
+        edtQos = findViewById(R.id.edtQos);
+        edtNumMessage = findViewById(R.id.edtNumMessage);
+        edtDelay = findViewById(R.id.edtDelay);
 
-        Button btnStart = (Button) findViewById(R.id.btnStart);
-        Button btnStop = (Button) findViewById(R.id.btnStop);
-        Button btnSave = (Button) findViewById(R.id.btnSave);
-        Button btnPublish = (Button) findViewById(R.id.btnPublish);
+        Button btnStart = findViewById(R.id.btnStart);
+        Button btnStop = findViewById(R.id.btnStop);
+        Button btnSave = findViewById(R.id.btnSave);
+        Button btnPublish = findViewById(R.id.btnPublish);
 
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
